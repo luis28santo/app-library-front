@@ -1,1 +1,45 @@
-<p>home.component works!</p>
+<div class="home-container w-100">
+  <div class="home-header shadow-sm">
+    <div class="logo-content">
+      <img src="assets/logo_header.png" alt="logo_header" width="325" />
+    </div>
+    <div class="profile-content">
+      <div class="profile-content__image">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          class="rounded-circle"
+          alt="Foto de Perfil"
+          style="width: 60px; height: 60px; object-fit: cover"
+        />
+      </div>
+      <div class="profile-content__data">
+        <div class="fw-bold">Juan Pérez</div>
+        <small class="text-muted">Desarrollador</small>
+      </div>
+      <div class="profile-content__logout">
+        <button class="btn btn-secondary btn-sm w-100 h-100">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="home-content">
+    <div class="sidebar-container">
+      <div class="menu-container w-100 pt-2">
+        <div class="menu-container__option w-100">
+          <i class="fa-solid fa-users"></i>
+          <div>Registrar usuario</div>
+        </div>
+        <div class="menu-container__option w-100">
+          <i class="fa-solid fa-book-open"></i>
+          <div>Registrar libro</div>
+        </div>
+        <div class="menu-container__option w-100">
+          <i class="fa-solid fa-pencil"></i>
+          <div>Registrar autor</div>
+        </div>
+      </div>
+    </div>
+    <div class="main-content"></div>
+  </div>
+</div>
