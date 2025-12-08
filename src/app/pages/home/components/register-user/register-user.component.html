@@ -1,1 +1,55 @@
-<p>register-user.component works!</p>
+<h2 class="page-title">Crear nuevo usuario</h2>
+<div class="register-user-container">
+
+  <form class="form-container">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName">Nombres</label>
+        <input id="firstName" type="text" placeholder="Escribe el nombre del usuario" />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Apellidos</label>
+        <input id="lastName" type="text" placeholder="Escribe el apellido del usuario" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input id="email" type="email" placeholder="ejemplo@email.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="document">Documento de Identidad</label>
+        <input id="document" type="text" placeholder="Ingrese el documento (DNI, CE) del usuario" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group full">
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" placeholder="Asignar una contraseña" />
+        <small class="hint">Mínimo 8 caracteres, 1 mayúscula, 1 número.</small>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group full">
+        <label>Rol</label>
+
+        <div class="roles">
+          <label><input type="radio" name="role" value="admin" /> Administrador</label>
+          <label><input type="radio" name="role" value="reader" /> Lector</label>
+          <label><input type="radio" name="role" value="librarian" /> Bibliotecario</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-cancel">Cancelar</button>
+      <button type="submit" class="btn-primary">Registrar usuario</button>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,95 @@
-<p>register-book.component works!</p>
+<h2 class="page-title">Añadir nuevo libro</h2>
+
+<div class="register-book-container">
+
+  <section class="form-section">
+    <h3 class="section-title">Información Principal</h3>
+
+    <div class="form-row">
+      <div class="form-group full">
+        <label for="title">Título del libro</label>
+        <input id="title" type="text" placeholder="Ej: Cien años de soledad" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="author">Autor</label>
+        <select id="author">
+          <option value="">Seleccionar autor</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="isbn">ISBN</label>
+        <input id="isbn" type="text" placeholder="Ej: 978-0329" />
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <h3 class="section-title">Detalles de publicación</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="editorial">Editorial</label>
+        <input id="editorial" type="text" placeholder="Ej: Editorial sudamericana" />
+      </div>
+
+      <div class="form-group">
+        <label for="year">Año de publicación</label>
+        <input id="year" type="text" placeholder="Ej: 1997" />
+      </div>
+
+      <div class="form-group">
+        <label for="pages">Número de páginas</label>
+        <input id="pages" type="text" placeholder="Ej: 174" />
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <h3 class="section-title">Sección descriptiva</h3>
+
+    <div class="descriptive-row">
+      <div class="image-column">
+        <label class="section-label">Imagen de portada</label>
+        <label class="image-upload">
+          <input id="cover" type="file" accept="image/*" hidden />
+          <span class="upload-icon">
+            <i class="fa-solid fa-file-arrow-up"></i>
+          </span>
+        </label>
+      </div>
+
+      <div class="info-column">
+        <div class="form-group">
+          <label for="genre">Género</label>
+          <input id="genre" type="text" placeholder="Ej: Novela" />
+        </div>
+
+        <div class="form-group full">
+          <label for="synopsis">Sinopsis</label>
+          <textarea id="synopsis" placeholder="Escribe una breve descripción del libro..."></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <h3 class="section-title">Inventario</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="stock">Cantidad de ejemplares</label>
+        <input id="stock" type="text" placeholder="Ej: 21" />
+      </div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button class="btn-cancel" type="button">Cancelar</button>
+    <button class="btn-primary" type="submit">Registrar libro</button>
+  </div>
+
+</div>
