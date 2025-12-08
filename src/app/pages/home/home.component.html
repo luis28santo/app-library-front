@@ -16,18 +16,18 @@
         />
       </div>
       <div class="profile-content__data">
-        <div class="fw-bold">Juan Pérez</div>
-        <small class="text-muted">Desarrollador</small>
+        <div class="fw-bold">{{ `${user?.nombres} ${user?.apellidos}` }}</div>
+        <small class="text-muted">{{ rolDescription }}</small>
       </div>
       <div class="profile-content__logout">
-        <button class="btn btn-secondary btn-sm w-100 h-100">
+        <button class="btn btn-secondary btn-sm w-100 h-100" (click)="logout()">
           <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </button>
       </div>
     </div>
   </div>
   <div class="home-content">
-    @if (isSidebarOpen) {
+    @if (isSidebarOpen && menuOptions.length) {
     <div class="sidebar-container">
       <div class="sidebar-logo mobile-only">
         <img src="assets/logo_header.png" alt="logo_sidebar" />

@@ -11,8 +11,6 @@ import { AuthService } from '../../core/service/auth.service';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
-  private _router = inject(Router);
-
   loginForm: FormGroup | undefined;
 
   constructor(
@@ -23,8 +21,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this._fb.group({
-      correoElectronico: ['', Validators.required],
-      password: ['', Validators.required],
+      correoElectronico: ['andresgallegos@gmail.com', Validators.required],
+      password: ['andres123', Validators.required],
     });
   }
 
@@ -35,11 +33,11 @@ export class LoginComponent implements OnInit {
     }
 
     this._authService.login(this.loginForm?.value).subscribe({
-      next: (value) => {
-        console.log(value);
-        this._router.navigate(['/home']);
+      next: () => {},
+      error: (error) => {
+        console.log({ error });
+        this._toastSrv.error(error.message || 'Error, datos invalidos', 2000);
       },
-      error: () => this._toastSrv.error('Error, datos invalidos', 2000),
     });
   }
 }
