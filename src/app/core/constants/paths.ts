@@ -1,5 +1,14 @@
 export const PATHS = {
   login: '/api/login',
   getBooks: '/api/libros',
+  searchBookByTitle: '/api/libros/buscar',
   reserveBook: '/api/reserva',
+  getUsers: '/api/usuarios',
+  getUsersByFullName: '/api/usuarios/buscar',
+  registerLoan: '/api/prestamo',
+  loansByUser: '/api/prestamo/usuario',
+  bookReturn: '/api/prestamo/devolver',
+  roles: '/api/roles',
+  getAutores: '/api/autores',
+  registerBook: '/api/libro',
 };
