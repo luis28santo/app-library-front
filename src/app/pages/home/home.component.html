@@ -33,18 +33,16 @@
         <img src="assets/logo_header.png" alt="logo_sidebar" />
       </div>
       <div class="menu-container w-100 pt-2">
-        <div class="menu-container__option w-100" routerLink="register-user">
-          <i class="fa-solid fa-users"></i>
-          <div>Registrar usuario</div>
+        @for (menu of menuOptions; track $index) {
+        <div
+          class="menu-container__option w-100"
+          [class.active]="menu.path === menuOptionSelected"
+          (click)="selectMenuOption(menu)"
+        >
+          <i [class]="menu.icon"></i>
+          <div>{{ menu.description }}</div>
         </div>
-        <div class="menu-container__option w-100" routerLink="register-book">
-          <i class="fa-solid fa-book-open"></i>
-          <div>Registrar libro</div>
-        </div>
-        <div class="menu-container__option w-100">
-          <i class="fa-solid fa-pencil"></i>
-          <div>Registrar autor</div>
-        </div>
+        }
       </div>
     </div>
     <div class="sidebar-overlay" (click)="isSidebarOpen = false"></div>

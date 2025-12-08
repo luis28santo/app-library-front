@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   user: IUser | null | undefined;
   menuOptions: IMenuOption[] = [];
   rolDescription: string | undefined;
+  menuOptionSelected: string | undefined;
 
   constructor(
     private _authSrv: AuthService,
@@ -27,10 +28,27 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.setValues();
+    this.redirectToHomepage();
+  }
+
+  selectMenuOption(menu: IMenuOption) {
+    this._router.navigate([`/home/${menu.path}`]);
+    this.menuOptionSelected = menu.path;
+  }
+
+  private setValues() {
     this.rolDescription = this._storageSrv.get<IRol>(KEYS.rol)!.descripcion;
     this.menuOptions = MENU_ROL[this.rolDescription.toLocaleLowerCase()];
     this.user = this._storageSrv.get<IUser>(KEYS.userInfo);
+    this.isSidebarOpen = this.menuOptions.length > 0;
     console.log({ menu: this.menuOptions, user: this.user });
+  }
+
+  private redirectToHomepage() {
+    const { path } = this.menuOptions[0];
+    this._router.navigate([`/home/${path}`]);
+    this.menuOptionSelected = path;
   }
 
   logout() {
