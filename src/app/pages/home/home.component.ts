@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit {
   }
 
   private redirectToHomepage() {
+    if (!this.menuOptions.length) {
+      return;
+    }
+
     const { path } = this.menuOptions[0];
     this._router.navigate([`/home/${path}`]);
     this.menuOptionSelected = path;

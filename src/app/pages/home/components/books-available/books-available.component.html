@@ -5,7 +5,11 @@
       <h4>Encuentra tu próxima lectura...</h4>
     </div>
     <div class="books-available-content__cards pt-3">
-        <card-list></card-list>
+      @if (books$ | async; as books) {
+      <card-list [books]="books" (bookSelected)="onBookSelected($event)"></card-list>
+      }@else {
+      <p>Cargando libros...</p>
+      }
     </div>
   </div>
 </div>
