@@ -27,6 +27,7 @@
     </div>
   </div>
   <div class="home-content">
+    @if (isSidebarOpen) {
     <div class="sidebar-container">
       <div class="sidebar-logo mobile-only">
         <img src="assets/logo_header.png" alt="logo_sidebar" />
@@ -47,6 +48,8 @@
       </div>
     </div>
     <div class="sidebar-overlay" (click)="isSidebarOpen = false"></div>
+    }
+
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>

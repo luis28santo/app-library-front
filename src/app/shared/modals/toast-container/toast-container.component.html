@@ -1,0 +1,27 @@
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1080">
+  @if (currentToast) {
+  <div
+    class="toast show"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [class.text-bg-success]="currentToast.type === 'success'"
+    [class.text-bg-danger]="currentToast.type === 'error'"
+    [class.text-bg-warning]="currentToast.type === 'warning'"
+    [class.text-bg-info]="currentToast.type === 'info'"
+    [attr.data-bs-delay]="currentToast.delay"
+  >
+    <div class="d-flex align-items-center">
+      <div class="toast-body text-white fw-bold">
+        {{ currentToast.message }}
+      </div>
+      <button
+        type="button"
+        class="btn-close me-2 m-auto"
+        aria-label="Close"
+        (click)="hideToast()"
+      ></button>
+    </div>
+  </div>
+  }
+</div>

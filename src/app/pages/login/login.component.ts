@@ -1,16 +1,45 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastService } from '../../core/service/toast.service';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../core/service/auth.service';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent {
-  private router = inject(Router);
+export class LoginComponent implements OnInit {
+  private _router = inject(Router);
+
+  loginForm: FormGroup | undefined;
+
+  constructor(
+    private _toastSrv: ToastService,
+    private _fb: FormBuilder,
+    private _authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.loginForm = this._fb.group({
+      correoElectronico: ['', Validators.required],
+      password: ['', Validators.required],
+    });
+  }
 
   login(): void {
-    this.router.navigate(['/home']);
+    if (this.loginForm?.invalid) {
+      this._toastSrv.error('Formulario invalido');
+      return;
+    }
+
+    this._authService.login(this.loginForm?.value).subscribe({
+      next: (value) => {
+        console.log(value);
+        this._router.navigate(['/home']);
+      },
+      error: () => this._toastSrv.error('Error, datos invalidos', 2000),
+    });
   }
 }
