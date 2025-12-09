@@ -24,7 +24,7 @@ export class AdminService {
   }
 
   registerUser(request: IUserRegisterRequest): Observable<any> {
-    const url = `${this.urlBase + PATHS.getUsers}`;
+    const url = `${this.urlBase + PATHS.registerUser}`;
 
     return this._http.post(url, request, { responseType: 'text', observe: 'response' }).pipe(
       map((resp) => {

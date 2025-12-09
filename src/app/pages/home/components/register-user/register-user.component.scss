@@ -4,7 +4,7 @@
   align-items: flex-start;
   width: 100%;
   background: #f5f6fa;
-  min-height: calc(100vh - 80px); 
+  min-height: calc(100vh - 80px);
   padding: 3rem 0;
 }
 
@@ -18,7 +18,7 @@
 
 .register-user-container {
   width: 93%;
-  margin-left: 32px; 
+  margin-left: 32px;
   background: #ffffff;
   padding: 2rem 2.5rem;
   border-radius: 16px;
@@ -61,6 +61,10 @@
 
         &:focus {
           border-color: #1a73e8;
+        }
+
+        &.is-invalid {
+          border-color: var(--bs-form-invalid-border-color) !important;
         }
       }
 
@@ -126,7 +130,6 @@
     }
   }
 }
-
 
 @media (max-width: 768px) {
   .page-title {

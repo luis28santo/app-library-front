@@ -11,4 +11,5 @@ export const PATHS = {
   roles: '/api/roles',
   getAutores: '/api/autores',
   registerBook: '/api/libro',
+  registerUser: '/api/usuario',
 };
