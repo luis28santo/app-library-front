@@ -158,4 +158,10 @@ export class RegisterLoanComponent {
       },
     });
   }
+
+  resetForm(){
+    this.searchUserTerm = '';
+    this.searchBookTerm = '';
+    this.returnDate = '';
+  }
 }

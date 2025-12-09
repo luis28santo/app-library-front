@@ -182,3 +182,41 @@
     }
   }
 }
+
+/* app-autocomplete.component.css */
+.autocomplete-container {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.results-dropdown {
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 70%;
+}
+
+.result-item {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item:hover {
+  background-color: #e0e0e0;
+}
+
+.no-results {
+  padding: 10px;
+  color: #888;
+  font-style: italic;
+}
+
+.selection-info {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid #007bff;
+  border-radius: 5px;
+}

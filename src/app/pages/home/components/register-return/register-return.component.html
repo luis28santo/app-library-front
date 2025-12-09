@@ -6,52 +6,60 @@
 
     <div class="form-row">
       <div class="input-wrapper">
-        <input type="text" placeholder="Ingrese el documento o nombre del usuario" />
+        <input
+          type="text"
+          placeholder="Ingrese el documento o nombre del usuario"
+          [formControl]="searchUserControl"
+          class="form-control"
+        />
       </div>
     </div>
+    <div class="results-dropdown">
+      @for (usuario of userList$ | async; track $index) {
+      <div class="result-item" (click)="selectUser(usuario)">
+        <strong>{{ usuario.nombre }}</strong> <small>({{ usuario.apellido }})</small>
+      </div>
+      }
+    </div>
 
+    @if (usuarioSeleccionado) {
+    <div class="selection-info">
+      <h4>Usuario Seleccionado:</h4>
+      <p>ID: {{ usuarioSeleccionado.documento }}</p>
+      <p>Nombre: {{ usuarioSeleccionado.nombre }}</p>
+    </div>
+    }
   </section>
 
   <section class="card-section">
     <div class="loans-header">
       <div>
         <label class="section-title">Libros en préstamo</label>
-        <p class="user-label">Usuario: <strong>""</strong></p>
+        <p class="user-label">
+          Usuario: <strong>{{ usuarioSeleccionado?.nombre }}</strong>
+        </p>
       </div>
     </div>
 
     <p class="sub-label">Selecciona los libros a devolver</p>
 
     <ul class="loan-list">
+      @for (item of loanList$| async; track $index) {
+
       <li class="loan-item">
         <div class="left">
-          <input type="checkbox" />
-
+          <input type="checkbox" (change)="changeValue($index, item)" [checked]="item.marcado" />
           <div class="loan-info">
-            <p class="book-title">El Principito</p>
-            <p class="date-label">Fecha de vencimiento: 10/01/2026</p>
+            <p class="book-title">{{ item.tituloLibro }}</p>
+            <p class="date-label">Fecha de vencimiento: {{ item.fechaDevolucion }}</p>
           </div>
         </div>
 
         <div class="right">
-          <span class="status active">Activo</span>
+          <span class="status active">{{ item.estado }}</span>
         </div>
       </li>
-
-      <li class="loan-item">
-        <div class="left">
-          <input type="checkbox" />
-
-          <div class="loan-info">
-            <p class="book-title">Cien Años de Soledad</p>
-            <p class="date-label">Fecha de vencimiento: 08/01/2026</p>
-          </div>
-        </div>
-
-        <div class="right">
-          <span class="status expired">Vencido</span>
-        </div>
-      </li>
+      }
     </ul>
 
     <div class="actions">

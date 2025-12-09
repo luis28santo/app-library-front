@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { StorageService } from './storage.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { PATHS } from '../constants/paths';
 import { IUserResponse } from '../models/user-response';
 import { IBookResponse } from '../models/books-response.interface';
@@ -46,7 +46,13 @@ export class LibrarianService {
 
   loansByUser(document: string): Observable<ILoanByUser[]> {
     const url = `${this.urlBase + PATHS.loansByUser}/${document}`;
-    return this._http.get<ILoanByUser[]>(url);
+    return this._http.get<ILoanByUser[]>(url).pipe(
+      map((resp) =>
+        resp.map((item) => {
+          return { ...item, marcado: false };
+        })
+      )
+    );
   }
 
   bookReturn(request: IBookReturnRequest): Observable<string> {
