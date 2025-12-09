@@ -14,6 +14,7 @@ import { IAutorRegisterRequest } from '../models/autor-register-request';
 })
 export class AdminService {
   private urlBase = environment.apiUrl;
+  
 
   constructor(private _http: HttpClient, private _storageSrv: StorageService) {}
 
@@ -51,7 +52,7 @@ export class AdminService {
 
     return this._http.post(url, formData, { responseType: 'text', observe: 'response' }).pipe(
       map((resp) => {
-        if (resp.status == 200) {
+        if (resp.status == 200 || resp.status == 201) {
           return { success: true, message: 'Registro Libro OK' };
         }
 
