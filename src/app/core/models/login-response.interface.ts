@@ -3,6 +3,7 @@ export interface ILoginResponse {
   readonly token: string;
   readonly nombres: string;
   readonly apellidos: string;
+  readonly documentoIdentidad: string;
   readonly rol: IRol;
 }
 
