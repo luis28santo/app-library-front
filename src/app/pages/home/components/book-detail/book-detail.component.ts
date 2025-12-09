@@ -34,17 +34,18 @@ export class BookDetailComponent implements OnInit {
     const user = this._storageSrv.get<IUser>(KEYS.userInfo);
 
     const request: IReserveBookRequest = {
-      documentoIdentidad: '12378945',
-      // isbnLibro: this.book!.isbnLibro,
-      isbnLibro: '978-0553383805',
+      documentoIdentidad: user!.documentoIdentidad,
+      isbnLibro: this.book!.isbnLibro,
     };
 
     this._bookSrv.reserveBook(request).subscribe({
-      next: (resp) => {
+      next: (resp: any) => {
         console.log(resp);
+        this._toasSrv.success(`${resp.estado!} N°: ${resp.idReserva}`);
       },
       error: ({ error, message }) => {
-        this._toasSrv.error(error.mensaje || message);
+        const detail = error?.detalle ? error?.mensaje + ' ' + error?.detalle : error?.mensaje;
+        this._toasSrv.error(detail || message);
       },
     });
   }

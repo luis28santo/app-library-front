@@ -60,10 +60,11 @@ export class AuthService {
     this._storageSrv.save(KEYS.rol, rol);
   }
 
-  private saveUserInfoCache({ nombres, apellidos }: ILoginResponse) {
+  private saveUserInfoCache({ nombres, apellidos, documentoIdentidad }: ILoginResponse) {
     const user: IUser = {
       nombres,
       apellidos,
+      documentoIdentidad
     };
     this._storageSrv.save(KEYS.userInfo, user);
   }
