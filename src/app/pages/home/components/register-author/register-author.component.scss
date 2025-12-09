@@ -33,7 +33,7 @@
     color: #111827;
   }
 
-  .form-card {
+  .form-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -64,6 +64,11 @@
           background: #fafafa;
           outline: none;
           transition: border 0.2s;
+        }
+
+        input.is-invalid,
+        textarea.is-invalid {
+          border-color: var(--bs-form-invalid-border-color) !important;
         }
 
         input:focus,
@@ -123,7 +128,7 @@
     margin-left: 0;
     padding: 1.5rem;
 
-    .form-card .form-row {
+    .form-container .form-row {
       flex-direction: column;
     }
 

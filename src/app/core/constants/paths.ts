@@ -12,4 +12,5 @@ export const PATHS = {
   getAutores: '/api/autores',
   registerBook: '/api/libro',
   registerUser: '/api/usuario',
+  registerAutor: '/api/autor',
 };

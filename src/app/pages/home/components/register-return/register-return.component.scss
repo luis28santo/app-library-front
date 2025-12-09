@@ -1,14 +1,15 @@
 :host {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   width: 100%;
   background: #f5f6fa;
   min-height: calc(100vh - 80px);
   padding: 3rem 0;
 }
 
-/* Título principal */
+/* ========================= */
+/* TÍTULO PRINCIPAL */
+/* ========================= */
 .page-title {
   font-size: 2rem;
   font-weight: 700;
@@ -17,59 +18,21 @@
   margin-left: 32px;
 }
 
-/* Input con ícono */
-.input-wrapper {
-  position: relative;
-  width: 70%;
-
-  input {
-    width: 100%;
-    padding: 0.9rem 2.8rem 0.9rem 1rem;
-    border-radius: 30px;
-    border: 1px solid #dcdcdc;
-    background: #f3f4f6;
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.2s ease;
-    margin-top: 1rem;
-
-    &:focus {
-      border-color: #1a73e8;
-      background: #ffffff;
-    }
-  }
-
-  &.small input {
-    max-width: 260px;
-  }
-
-  .icon {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.6;
-    font-size: 1rem;
-    cursor: pointer;
-    pointer-events: auto;
-  }
-}
-
+/* ========================= */
+/* CONTENEDOR GENERAL */
+/* ========================= */
 .return-container {
   width: 100%;
   padding: 1rem 2rem;
 }
 
-.title {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-}
-
+/* ========================= */
+/* SECCIONES (CARD) */
+/* ========================= */
 .card-section {
   background: #ffffff;
-  padding: 1.5rem;
-  border-radius: 10px;
+  padding: 1.8rem;
+  border-radius: 12px;
   margin-bottom: 1.5rem;
   border: 1px solid #e6e6e6;
 }
@@ -77,8 +40,12 @@
 .section-title {
   font-size: 1.3rem;
   font-weight: 600;
+  margin-bottom: 0.7rem;
 }
 
+/* ========================= */
+/* BUSCADOR */
+/* ========================= */
 .search-wrapper {
   margin-top: 0.6rem;
   display: flex;
@@ -86,54 +53,52 @@
 
   input {
     flex: 1;
-    padding: 0.7rem 1rem;
-    border-radius: 10px 0 0 10px;
+    padding: 0.8rem 1rem;
+    border-radius: 12px 0 0 12px;
     border: 1px solid #dcdcdc;
+    background: #f3f4f6;
     outline: none;
+    font-size: 0.95rem;
+
+    &:focus {
+      background: #ffffff;
+      border-color: #284b89;
+    }
   }
 
   .btn-search {
-    padding: 0.7rem 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 0 12px 12px 0;
     border: 1px solid #dcdcdc;
     border-left: none;
-    background-color: #f3f3f3;
+    background: #ececec;
     cursor: pointer;
-    border-radius: 0 10px 10px 0;
-  }
-}
 
-.results-list {
-  margin-top: 0.5rem;
-  border: 1px solid #dfdfdf;
-  border-radius: 10px;
-  background: #fff;
-  max-height: 200px;
-  overflow-y: auto;
-
-  li {
-    padding: 0.6rem 1rem;
-    cursor: pointer;
-    border-bottom: 1px solid #f2f2f2;
-
-    &:hover {
-      background: #f7f7f7;
-    }
-
-    &:last-child {
-      border-bottom: none;
+    i {
+      opacity: 0.6;
     }
   }
 }
 
+/* ========================= */
+/* LISTA DE PRÉSTAMOS */
+/* ========================= */
 .user-label {
-  margin-top: 0.3rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #6b6b6b;
+  margin-bottom: 0.8rem;
+
+  strong {
+    color: #111827;
+  }
 }
 
 .sub-label {
   font-size: 0.95rem;
-  margin: 1rem 0 0.6rem;
+  margin-bottom: 0.8rem;
+  color: #444;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .loan-list {
@@ -145,17 +110,28 @@
     justify-content: space-between;
     align-items: center;
 
-    padding: 0.8rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid #efefef;
+
+    &:last-child {
+      border-bottom: none;
+    }
 
     .left {
       display: flex;
       align-items: center;
       gap: 1rem;
 
+      input[type='checkbox'] {
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+
       .loan-info {
         .book-title {
           font-weight: 600;
+          font-size: 1rem;
+          margin-bottom: 0.2rem;
         }
         .date-label {
           font-size: 0.85rem;
@@ -164,32 +140,45 @@
       }
     }
 
-    .status {
-      padding: 0.3rem 0.7rem;
-      border-radius: 12px;
-      font-size: 0.8rem;
+    .right {
+      .status {
+        padding: 0.3rem 0.8rem;
+        border-radius: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
 
-      &.active {
-        background: #d4f7d4;
-        color: #2b8a2b;
-      }
+        &.active {
+          background: #d6f5d6;
+          color: #2b8a2b;
+        }
 
-      &.expired {
-        background: #ffd7d7;
-        color: #b20000;
+        &.expired {
+          background: #ffd6d6;
+          color: #b20000;
+        }
       }
     }
   }
 }
 
+/* ========================= */
+/* BOTÓN */
+/* ========================= */
 .actions {
   text-align: right;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 
   .btn-return {
     background: #284b89;
     color: #fff;
-    padding: 0.7rem 1.4rem;
+    padding: 0.8rem 1.6rem;
     border-radius: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #1f3c6b;
+    }
   }
 }

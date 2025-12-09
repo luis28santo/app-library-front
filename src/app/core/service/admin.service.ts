@@ -64,7 +64,7 @@ export class AdminService {
   }
 
   registerAutor(request: IAutorRegisterRequest) {
-    const url = `${this.urlBase + PATHS.registerBook}`;
+    const url = `${this.urlBase + PATHS.registerAutor}`;
 
     return this._http.post(url, request, { responseType: 'text', observe: 'response' }).pipe(
       map((resp) => {
