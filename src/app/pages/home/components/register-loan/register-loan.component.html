@@ -1,0 +1,80 @@
+<div class="page-title">Registrar nuevo préstamo</div>
+
+<div class="register-loan-container">
+  <div class="card">
+
+    <!-- Buscar usuario -->
+    <div class="form-section">
+      <label class="section-title">Buscar usuario</label>
+
+      <div class="form-row">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            placeholder="Ingrese el documento o nombre del usuario"
+            [(ngModel)]="searchUserTerm"
+            (input)="onUserSearch()"
+          />
+          <span class="icon" (click)="onUserSearch()">🔍</span>
+
+          <!-- RESULTADOS DE USUARIO -->
+          <ul class="dropdown" *ngIf="searchUserTerm && searchUserTerm.length >= 2 && !isUserSelected">
+            <li *ngFor="let u of userResults" (click)="selectUser(u)">
+              {{ u.nombre }} {{ u.apellido }} — {{ u.documento }}
+            </li>
+            <li class="no-results" *ngIf="userResults.length === 0">
+              No se encontraron usuarios.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buscar libro -->
+    <div class="form-section">
+      <label class="section-title">Buscar libro</label>
+
+      <div class="form-row">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            placeholder="Buscar por título del libro"
+            [(ngModel)]="searchBookTerm"
+            (input)="onBookSearch()"
+          />
+          <span class="icon" (click)="onBookSearch()">🔍</span>
+
+          <!-- RESULTADOS DE LIBROS -->
+          <ul class="dropdown" *ngIf="searchBookTerm && searchBookTerm.length >= 2 && !isBookSelected">
+            <li *ngFor="let b of bookResults" (click)="selectBook(b)">
+              {{ b.tituloLibro }} — {{ b.isbnLibro }}
+            </li>
+            <li class="no-results" *ngIf="bookResults.length === 0">
+              No se encontraron libros.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fecha de devolución -->
+    <div class="form-section">
+      <label class="section-title">Fecha de devolución</label>
+      <div class="form-row">
+        <div class="input-wrapper small">
+          <input type="date" [(ngModel)]="returnDate" />
+          <span class="icon">📅</span>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Botones -->
+    <div class="actions">
+      <button class="btn btn-cancel">Cancelar</button>
+      <button class="btn btn-primary" (click)="registerLoan()">Registrar préstamo</button>
+    </div>
+
+  </div>
+</div>

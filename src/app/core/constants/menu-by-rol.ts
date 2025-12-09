@@ -25,20 +25,30 @@ export const MENU_ROL: IMenuRol = {
     },
     {
       description: 'Registrar autor',
-      path: '',
+      path: 'register-author',
       icon: 'fa-solid fa-pencil',
+    },
+    {
+      description: 'Registrar préstamo',
+      path: 'register-loan',
+      icon: 'fa-solid fa-arrow-right-arrow-left',
+    },
+    {
+      description: 'Registrar devolución',
+      path: 'register-return',
+      icon: 'fa-solid fa-rotate-left',
     },
   ],
   bibliotecario: [
     {
       description: 'Registrar préstamo',
-      path: '',
-      icon: '',
+      path: 'register-loan',
+      icon: 'fa-solid fa-arrow-right-arrow-left',
     },
     {
       description: 'Registrar devolución',
-      path: '',
-      icon: '',
+      path: 'register-return',
+      icon: 'fa-solid fa-rotate-left',
     },
   ],
   lector: [],

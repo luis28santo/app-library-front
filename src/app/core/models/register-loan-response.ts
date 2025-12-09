@@ -2,8 +2,8 @@ export interface IRegisterLoanResponse {
   readonly idPrestamo: number;
   readonly usuario: Usuario;
   readonly libro: Libro;
-  readonly fechaPrestamo: Date;
-  readonly fechaDevolucion: Date;
+  readonly fechaPrestamo: string;
+  readonly fechaDevolucion: string;
   readonly estado: string;
 }
 

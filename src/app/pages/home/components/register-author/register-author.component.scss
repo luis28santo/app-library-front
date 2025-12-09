@@ -1,0 +1,147 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background: #f5f6fa;
+  min-height: calc(100vh - 80px);
+  padding: 3rem 0;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+  margin-left: 32px;
+}
+
+.register-author-container {
+  width: 93%;
+  margin-left: 32px;
+  background: #ffffff;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+
+  .form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #111827;
+  }
+
+  .form-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      width: 100%;
+
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 1.05rem;
+          font-weight: 700;
+          margin-bottom: 0.4rem;
+          color: #333;
+        }
+
+        input,
+        textarea {
+          padding: 0.7rem 1rem;
+          border: 1px solid #d4d4d4;
+          border-radius: 8px;
+          font-size: 0.95rem;
+          background: #fafafa;
+          outline: none;
+          transition: border 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+          border-color: #1a73e8;
+          background: #ffffff;
+        }
+
+        textarea {
+          min-height: 130px;
+          resize: none;
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .btn-cancel {
+        background: #e8e8e8;
+        border: none;
+        padding: 0.7rem 1.4rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #d6d6d6;
+        }
+      }
+
+      .btn-submit {
+        background: #305588;
+        color: white;
+        border: none;
+        padding: 0.7rem 1.4rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #4570ad;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .register-author-container {
+    width: 90%;
+    margin-left: 0;
+    padding: 1.5rem;
+
+    .form-card .form-row {
+      flex-direction: column;
+    }
+
+    .form-actions {
+      flex-direction: column;
+      align-items: center;
+
+      .btn-cancel,
+      .btn-submit {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.9rem 1.2rem;
+      }
+    }
+  }
+
+  :host {
+    align-items: center;
+    padding: 1rem 0;
+  }
+}
